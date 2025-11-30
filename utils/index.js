@@ -21,10 +21,7 @@ import play from "@/public/assets/images/play.svg";
 import pause from "@/public/assets/images/pause.svg";
 
 import yellow from "@/public/assets/images/yellow.jpg";
-import blue from "@/public/assets/images/blue.jpg";
 import white from "@/public/assets/images/white.jpg";
-import black from "@/public/assets/images/black.jpg";
-import explore1 from "@/public/assets/images/explore1.jpg";
 import explore2 from "@/public/assets/images/explore2.jpg";
 import chip from "@/public/assets/images/chip.jpeg";
 import frame from "@/public/assets/images/frame.png";
