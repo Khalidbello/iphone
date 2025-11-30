@@ -12,7 +12,7 @@ const testimonials = [
   {
     name: "Alice Johnson",
     text: "BotSub has completely changed how I manage my data top-ups. Fast, reliable, and intuitive.",
-    avatar: "/avatar1.png",
+    avatar: "/frames/frame_0001.png",
     role: "Product Manager",
     rating: 5,
   },

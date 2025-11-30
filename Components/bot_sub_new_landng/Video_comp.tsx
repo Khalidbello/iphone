@@ -10,9 +10,9 @@ gsap.registerPlugin(ScrollTrigger);
 export default function ScrollImageSequence() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const frameCount = 300;
+  const frameCount = 500;
   const currentFrame = (i: number) =>
-    `frames/frame_${String(i).padStart(4, "0")}.png`;
+    `/frames/frame_${String(i).padStart(4, "0")}.png`;
 
   useGSAP(() => {
     const canvas = canvasRef.current!;
@@ -26,7 +26,7 @@ export default function ScrollImageSequence() {
     // Preload images
     for (let i = 1; i <= frameCount; i++) {
       const img = new Image();
-      img.src = currentFrame(i);
+      img.src = currentFrame(i + 200);
       images[i] = img;
     }
 
