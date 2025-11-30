@@ -1,7 +1,7 @@
-import React from "react";
+// import React from "react";
 
-const ModelView = () => {
-  return <div>ModelView</div>;
-};
+// const ModelView = () => {
+//   return <div>ModelView</div>;
+// };
 
-export default ModelView;
+// export default ModelView;
