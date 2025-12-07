@@ -99,10 +99,10 @@ export default function HeroFeatureWithScroll() {
     });
 
     /* ------------------ SCROLL IMAGE SEQUENCE ------------------ */
-    const frameCount = 500;
+    const frameCount = 300;
 
     const currentFrame = (i: number) =>
-      `/frames/frame_${String(i).padStart(4, "0")}.png`;
+      `/frames_opt/frame_${String(i).padStart(4, "0")}.webp`;
 
     const images: HTMLImageElement[] = [];
     const frame = { index: 1 };
