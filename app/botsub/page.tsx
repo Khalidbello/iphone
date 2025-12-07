@@ -1,3 +1,4 @@
+import Footer from "@/Components/bot_sub_new_landng/footer";
 import HeroFeatureWithScroll from "@/Components/bot_sub_new_landng/hero_test";
 import HorizontalCardSlider from "@/Components/bot_sub_new_landng/horizontal_card";
 import ResponsiveNavbar from "@/Components/bot_sub_new_landng/nav_bar";
@@ -14,6 +15,7 @@ const Page = () => {
       <HorizontalCardSlider />
       <WhatsaapFeature />
       <WhatsAppTestimonials />
+      <Footer />
     </div>
   );
 };
