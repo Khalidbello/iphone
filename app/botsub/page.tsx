@@ -5,13 +5,11 @@ import HorizontalCardSlider from "@/Components/bot_sub_new_landng/horizontal_car
 import ResponsiveNavbar from "@/Components/bot_sub_new_landng/nav_bar";
 import WhatsaapFeature from "@/Components/bot_sub_new_landng/on_whatsapp";
 import WhatsAppTestimonials from "@/Components/bot_sub_new_landng/whats_app_reviews";
-import React from "react";
 
 const Page = () => {
   return (
-    <div className="w-screen h-screen bg-white">
+    <div className=" bg-white overflow-hidden">
       <ResponsiveNavbar />
-      {/* <Hero /> */}
       <HeroFeatureWithScroll />
       <HorizontalCardSlider />
       <WhatsaapFeature />

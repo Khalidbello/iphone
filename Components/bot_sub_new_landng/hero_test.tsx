@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Intro from "./Intro";
 import { FiArrowRight } from "react-icons/fi";
+import PlatformOverlay from "./overlay";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,6 +18,15 @@ export default function HeroFeatureWithScroll() {
   const phoneRef = useRef<HTMLDivElement>(null);
   const ctaRef = useRef<HTMLButtonElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+
+  /* overlay control codes */
+  const [isOverlayOpen, setOverlayOpen] = useState(false);
+
+  const handlePlatformSelect = (platform: "facebook" | "whatsapp") => {
+    console.log("Selected Platform:", platform);
+    setOverlayOpen(false);
+    // navigate or open chat based on platform
+  };
 
   /* Canvas inside phone */
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -187,95 +197,104 @@ export default function HeroFeatureWithScroll() {
 
   /* ------------------------------ JSX VIEW ------------------------------ */
   return (
-    <div ref={containerRef} className="w-full overflow-x-hidden bg-white">
-      <Intro onComplete={runOnIntroComplete} />
+    <>
+      <div ref={containerRef} className="w-full overflow-x-hidden bg-white">
+        <Intro onComplete={runOnIntroComplete} />
 
-      {/* ---------------- HERO SECTION ---------------- */}
-      <section
-        ref={heroRef}
-        className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-8 pt-32 bg-linear-60 from-white to-blue-50"
-      >
-        {/* Glows */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="hero-glow absolute top-1/3 left-1/4 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl" />
-          <div className="hero-glow absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl" />
-        </div>
-
-        <div className="relative z-10 flex flex-col items-center gap-10 max-w-5xl text-center">
-          <div ref={textRef} className="leading-tight overflow-hidden">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-gray-900 ">
-              {splitText("Top Up Made Easy With")}
-            </h1>
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold mt-2 text-blue-600">
-              {splitText("BotSub")}
-            </h1>
+        {/* ---------------- HERO SECTION ---------------- */}
+        <section
+          ref={heroRef}
+          className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-8 pt-32 bg-linear-60 from-white to-blue-50"
+        >
+          {/* Glows */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="hero-glow absolute top-1/3 left-1/4 w-72 h-72 bg-cyan-400/20 rounded-full blur-3xl" />
+            <div className="hero-glow absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-500/20 rounded-full blur-3xl" />
           </div>
 
-          <button
-            ref={ctaRef}
-            className="relative px-10 py-4 rounded-full bg-blue-700 text-white font-semibold text-lg shadow-lg hover:shadow-2xl transition-all hover:scale-[1.04] active:scale-[0.96] overflow-hidden group"
+          <div className="relative z-10 flex flex-col items-center gap-10 max-w-5xl text-center">
+            <div ref={textRef} className="leading-tight overflow-hidden">
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-gray-900 ">
+                {splitText("Top Up Made Easy With")}
+              </h1>
+              <h1 className="text-5xl sm:text-6xl md:text-7xl font-extrabold mt-2 text-blue-600">
+                {splitText("BotSub")}
+              </h1>
+            </div>
+
+            <button
+              onClick={() => setOverlayOpen(true)}
+              ref={ctaRef}
+              className="relative px-10 py-4 rounded-full bg-blue-700 text-white font-semibold text-lg shadow-lg hover:shadow-2xl transition-all hover:scale-[1.04] active:scale-[0.96] overflow-hidden group"
+            >
+              <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -skew-x-12 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000" />
+
+              <span className="relative z-10 flex items-center gap-2">
+                Sub Now <FiArrowRight className="text-xl" />
+              </span>
+            </button>
+          </div>
+        </section>
+
+        {/* ---------------- FEATURE SECTION ---------------- */}
+        <section
+          ref={featureRef}
+          className="relative w-full h-screen pt-20 flex items-center justify-center bg-linear-to-b from-slate-900 via-blue-950 to-black overflow-hidden"
+        >
+          <div
+            id="feature-intro"
+            className="absolute text-center text-white text-4xl font-extrabold opacity-0"
           >
-            <span className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -skew-x-12 translate-x-[-150%] group-hover:translate-x-[150%] transition-transform duration-1000" />
+            BotSub on Facebook
+          </div>
 
-            <span className="relative z-10 flex items-center gap-2">
-              Sub Now <FiArrowRight className="text-xl" />
-            </span>
-          </button>
-        </div>
-      </section>
+          {/* PHONE UI + CANVAS */}
+          <div
+            ref={phoneRef}
+            className="relative h-[90%] aspect-[11/20] bg-black rounded-3xl shadow-2xl border-4 border-black overflow-hidden"
+          >
+            <canvas
+              ref={canvasRef}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
 
-      {/* ---------------- FEATURE SECTION ---------------- */}
-      <section
-        ref={featureRef}
-        className="relative w-full h-screen pt-20 flex items-center justify-center bg-linear-to-b from-slate-900 via-blue-950 to-black overflow-hidden"
-      >
-        <div
-          id="feature-intro"
-          className="absolute text-center text-white text-4xl font-extrabold opacity-0"
-        >
-          BotSub on Facebook
-        </div>
+          {/* TIPS */}
+          <div
+            id="first"
+            className="absolute left-[3%] md:left-[20%] top-[24%] text-lg font-semibold text-yellow-500"
+          >
+            Buy Data Instantly
+          </div>
 
-        {/* PHONE UI + CANVAS */}
-        <div
-          ref={phoneRef}
-          className="relative h-[90%] aspect-[11/20] bg-black rounded-3xl shadow-2xl border-4 border-black overflow-hidden"
-        >
-          <canvas
-            ref={canvasRef}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        </div>
+          <div
+            id="second"
+            className="absolute right-[3%] md:right-[20%] top-[40%] text-lg font-semibold text-yellow-500"
+          >
+            Works in Free Mode
+          </div>
 
-        {/* TIPS */}
-        <div
-          id="first"
-          className="absolute left-[3%] md:left-[20%] top-[24%] text-lg font-semibold text-yellow-500"
-        >
-          Buy Data Instantly
-        </div>
+          <div
+            id="third"
+            className="absolute left-[3%] md:left-[20%] top-[60%] text-lg font-semibold text-yellow-500"
+          >
+            Fast, Smooth & Simple
+          </div>
 
-        <div
-          id="second"
-          className="absolute right-[3%] md:right-[20%] top-[40%] text-lg font-semibold text-yellow-500"
-        >
-          Works in Free Mode
-        </div>
+          <div
+            id="forth"
+            className="absolute right-[3%] md:right-[20%] top-[85%] text-lg font-semibold text-yellow-500"
+          >
+            Secure Transactions
+          </div>
+        </section>
+      </div>
 
-        <div
-          id="third"
-          className="absolute left-[3%] md:left-[20%] top-[60%] text-lg font-semibold text-yellow-500"
-        >
-          Fast, Smooth & Simple
-        </div>
-
-        <div
-          id="forth"
-          className="absolute right-[3%] md:right-[20%] top-[85%] text-lg font-semibold text-yellow-500"
-        >
-          Secure Transactions
-        </div>
-      </section>
-    </div>
+      <PlatformOverlay
+        isOpen={isOverlayOpen}
+        onClose={() => setOverlayOpen(false)}
+        onSelectPlatform={handlePlatformSelect}
+      />
+    </>
   );
 }

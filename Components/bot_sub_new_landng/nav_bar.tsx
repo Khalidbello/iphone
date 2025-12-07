@@ -3,6 +3,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useState } from "react";
+import PlatformOverlay from "./overlay";
 
 // function to handle navBar animation
 const animateNavbar = () => {
@@ -65,6 +66,15 @@ const animateNavbar = () => {
 
 const ResponsiveNavbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  /* overlay control codes */
+  const [isOverlayOpen, setOverlayOpen] = useState(false);
+
+  const handlePlatformSelect = (platform: "facebook" | "whatsapp") => {
+    console.log("Selected Platform:", platform);
+    setOverlayOpen(false);
+    // navigate or open chat based on platform
+  };
 
   // This will run the animation when component mounts
   useGSAP(() => {
@@ -186,7 +196,7 @@ const ResponsiveNavbar = () => {
                 </button>
               ))}
               <button
-                onClick={(e) => handleNavClick(e, "contact")}
+                onClick={() => setOverlayOpen(true)}
                 className="nav-item bg-blue-600 text-white px-6 py-2 rounded-full font-bold hover:bg-yellow-400 hover:text-blue-900 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 Get Started
@@ -221,7 +231,7 @@ const ResponsiveNavbar = () => {
         {/* Mobile Menu - Always in DOM but hidden with height: 0 */}
         <div
           id="mobile-menu"
-          className="md:hidden bg-gradient-to-b from-slate-900 via-blue-950 to-black backdrop-blur-lg overflow-hidden"
+          className="md:hidden bg-linear-to-b from-slate-900 via-blue-950 to-black backdrop-blur-lg overflow-hidden"
           style={{ height: 0 }} // Initial state
         >
           <div className="container mx-auto px-4 py-4">
@@ -235,7 +245,7 @@ const ResponsiveNavbar = () => {
               </button>
             ))}
             <button
-              onClick={(e) => handleNavClick(e, "contact")}
+              onClick={() => setOverlayOpen(true)}
               className="mobile-nav-item w-full bg-yellow-400 text-blue-900 py-4 px-4 rounded-lg font-bold hover:bg-yellow-300 transition-all duration-300 mt-4 hover:scale-105"
             >
               Get Started
@@ -243,6 +253,12 @@ const ResponsiveNavbar = () => {
           </div>
         </div>
       </nav>
+
+      <PlatformOverlay
+        isOpen={isOverlayOpen}
+        onClose={() => setOverlayOpen(false)}
+        onSelectPlatform={handlePlatformSelect}
+      />
     </>
   );
 };
