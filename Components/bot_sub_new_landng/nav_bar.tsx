@@ -221,7 +221,7 @@ const ResponsiveNavbar = () => {
         {/* Mobile Menu - Always in DOM but hidden with height: 0 */}
         <div
           id="mobile-menu"
-          className="md:hidden bg-blue-800/95 backdrop-blur-lg overflow-hidden"
+          className="md:hidden bg-gradient-to-b from-slate-900 via-blue-950 to-black backdrop-blur-lg overflow-hidden"
           style={{ height: 0 }} // Initial state
         >
           <div className="container mx-auto px-4 py-4">

@@ -227,7 +227,7 @@ export default function HeroFeatureWithScroll() {
       {/* ---------------- FEATURE SECTION ---------------- */}
       <section
         ref={featureRef}
-        className="relative w-full h-screen pt-20 flex items-center justify-center bg-linear-30 from-slate-800 to-blue-900 overflow-hidden"
+        className="relative w-full h-screen pt-20 flex items-center justify-center bg-linear-to-b from-slate-900 via-blue-950 to-black overflow-hidden"
       >
         <div
           id="feature-intro"
