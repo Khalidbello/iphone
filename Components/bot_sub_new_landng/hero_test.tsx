@@ -203,6 +203,7 @@ export default function HeroFeatureWithScroll() {
 
         {/* ---------------- HERO SECTION ---------------- */}
         <section
+          id="home"
           ref={heroRef}
           className="relative w-full min-h-screen flex items-center justify-center px-4 sm:px-8 pt-32 bg-linear-60 from-white to-blue-50"
         >
@@ -238,6 +239,7 @@ export default function HeroFeatureWithScroll() {
 
         {/* ---------------- FEATURE SECTION ---------------- */}
         <section
+          id="fb"
           ref={featureRef}
           className="relative w-full h-screen pt-20 flex items-center justify-center bg-linear-to-b from-slate-900 via-blue-950 to-black overflow-hidden"
         >
@@ -259,32 +261,44 @@ export default function HeroFeatureWithScroll() {
             />
           </div>
 
-          {/* TIPS */}
+          {/* Tips */}
           <div
             id="first"
-            className="absolute left-[3%] md:left-[20%] top-[24%] text-lg font-semibold text-yellow-500"
+            className="absolute left-[3%] md:left-[20%] top-[24%] pl-2 text-lg font-semibold bg-transparent text-yellow-500 
+          py-2 rounded-xl"
           >
+            <div className="absolute top-2 left-0 bg-white h-px w-full"></div>
+            <div className="absolute top-1 left-0 bg-white w-2 h-2 rounded-full"></div>
             Buy Data Instantly
           </div>
 
           <div
             id="second"
-            className="absolute right-[3%] md:right-[20%] top-[40%] text-lg font-semibold text-yellow-500"
+            className="absolute right-[3%] md:right-[20%] top-[40%] pr-2  text-lg font-semibold bg-transparent text-yellow-500 
+          py-2 rounded-xl"
           >
+            <div className="absolute top-2 left-0 bg-white h-px w-full"></div>
+            <div className="absolute top-1 right-0 bg-white w-2 h-2 rounded-full"></div>
             Works in Free Mode
           </div>
 
           <div
             id="third"
-            className="absolute left-[3%] md:left-[20%] top-[60%] text-lg font-semibold text-yellow-500"
+            className="absolute left-[3%] md:left-[20%] top-[60%] pl-2  text-lg font-semibold bg-transparent text-yellow-500 
+          py-2 rounded-xl"
           >
+            <div className="absolute top-2 left-0 bg-white h-px w-full"></div>
+            <div className="absolute top-1 left-0 bg-white w-2 h-2 rounded-full"></div>
             Fast, Smooth & Simple
           </div>
 
           <div
             id="forth"
-            className="absolute right-[3%] md:right-[20%] top-[85%] text-lg font-semibold text-yellow-500"
+            className="absolute right-[3%] md:right-[20%] top-[85%] pr-2  text-lg font-semibold bg-transparent text-yellow-500 
+          py-2 rounded-xl"
           >
+            <div className="absolute top-2 left-0 bg-white h-px w-full"></div>
+            <div className="absolute top-1 right-0 bg-white w-2 h-2 rounded-full"></div>
             Secure Transactions
           </div>
         </section>

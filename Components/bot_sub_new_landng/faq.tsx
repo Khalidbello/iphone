@@ -109,6 +109,7 @@ const FAQ = () => {
 
   return (
     <section
+      id="faq"
       ref={containerRef}
       className="w-full bg-gradient-to-b from-slate-900 via-blue-950 to-black py-24 text-white"
     >

@@ -4,6 +4,9 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useState } from "react";
 import PlatformOverlay from "./overlay";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 // function to handle navBar animation
 const animateNavbar = () => {
@@ -145,7 +148,7 @@ const ResponsiveNavbar = () => {
     if (targetElement) {
       gsap.to(window, {
         duration: 1,
-        scrollTo: { y: targetElement, offsetY: 80 },
+        scrollTo: { y: targetElement, offsetY: -50 },
         ease: "power2.inOut",
       });
     }
@@ -158,10 +161,9 @@ const ResponsiveNavbar = () => {
 
   const navItems = [
     { name: "Home", id: "home" },
-    { name: "About", id: "about" },
-    { name: "Services", id: "services" },
-    { name: "Portfolio", id: "portfolio" },
-    { name: "Contact", id: "contact" },
+    { name: "On Facebook", id: "fb" },
+    { name: "On WhatsApp", id: "wa" },
+    { name: "FAQ", id: "faq" },
   ];
 
   return (

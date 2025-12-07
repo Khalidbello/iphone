@@ -183,24 +183,14 @@ export default function WhatsAppTestimonials() {
         </div>
       </div>
       <div className="flex justify-center mt-8">
-        <button
-          className="
-      relative px-8 sm:px-10 py-3 sm:py-4 
-      rounded-3xl 
-      bg-gradient-to-r from-cyan-400 to-blue-500 
-      text-white font-semibold text-lg sm:text-xl 
-      shadow-lg shadow-cyan-500/50 
-      hover:scale-105 hover:shadow-cyan-500/70 
-      active:scale-95 
-      transition-all duration-300
-      backdrop-blur-md
-      border border-white/20
-      overflow-hidden
-      flex items-center gap-2 mb-16
-    "
+        <a
+          href="https://wa.me/+2349136659673"
+          className="relative px-8 sm:px-10 py-3 sm:py-4 rounded-3xl bg-linear-to-r from-cyan-400 to-blue-500 text-white 
+          font-semibold text-lg sm:text-xl shadow-lg shadow-cyan-500/50 hover:scale-105 hover:shadow-cyan-500/70 active:scale-95 
+          transition-all duration-300 backdrop-blur-md border border-white/20 overflow-hidden flex items-center gap-2 mb-16"
         >
           Use BotSub on Facebook <FaArrowRight className="text-white text-lg" />
-        </button>
+        </a>
       </div>
     </section>
   );

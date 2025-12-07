@@ -78,6 +78,7 @@ const WhatsaapFeature = () => {
     <div ref={containerRef} className="w-full overflow-x-hidden bg-white">
       {/* ---------------- FEATURE SECTION ---------------- */}
       <section
+        id="wa"
         ref={featureRef}
         className="relative w-full h-screen pt-20 flex items-center justify-center bg-gradient-to-b from-slate-900 via-green-950 to-black overflow-hidden"
       >
